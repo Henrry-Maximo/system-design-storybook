@@ -27,11 +27,18 @@ jobs:
       # instalação dos pacotes / npm ci é feito para instalação no ambiente de ci, não mexe no package-lock / somente dependências de produção
       - run: npm ci
 
-      - run: npm run build
+      - name: Build Storybook
+        run: npm run build
 
-      - name: Deploy storybook
-        working-directory: ./packages/docs
-        run: npm run deploy-storybook -- --ci --existing-dir=storybook-static
-        env:
-          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+      # - name: Deploy storybook
+      #   working-directory: ./packages/docs
+      #   run: npm run deploy-storybook -- --ci --existing-dir=storybook-static
+      #   env:
+      #     GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy to gitHub pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./packages/docs/storybook-static
 
