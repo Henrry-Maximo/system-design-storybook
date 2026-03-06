@@ -7,6 +7,10 @@ on:
     branches:
       - main
 
+# permitir que o job escreva no repositório
+permissions:
+  contents: write
+
 # serviço
 jobs:
   # nome do serviço
