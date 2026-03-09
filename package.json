@@ -10,7 +10,7 @@
 
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build --filter=!@ignite-ui-repo/docs && changeset publish"
+    "release": "turbo run build --filter=!docs && changeset publish"
   },
   "devDependencies": {
     "turbo": "^2.8.12"
