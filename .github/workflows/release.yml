@@ -27,8 +27,6 @@ jobs:
 
       - name: Build Storybook
         run: npm run build
-        env:
-          
 
       - name: Publish to NPM
         id: changesets
