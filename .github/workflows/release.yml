@@ -11,6 +11,11 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
       # pegar o código
       - name: Checkout
